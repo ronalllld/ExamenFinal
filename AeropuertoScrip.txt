@@ -19,7 +19,3 @@ Restricciones VARCHAR(250),
 Salario DECIMAL,
 Turno VARCHAR(50));
 
--- TABLA ENTRE PILOTOS Y AVIONES
-CREATE TABLE IF NOT EXISTS Piloto_Avion(
-Piloto_numero_licencia INTEGER REFERENCES Pilotos(NumeroLicencia),
-avion_numero INTEGER REFERENCES Aviones(numero));
