@@ -1,0 +1,25 @@
+-- crear la tabla para los hangares
+CREATE TABLE IF NOT EXISTS Hangares(
+Numero SERIAL PRIMARY KEY ,
+Capacidad INTEGER,
+Localizacion VARCHAR(200));
+
+-- TABLA PARA LOS AVIONES
+CREATE TABLE IF NOT EXISTS Aviones(
+Numero SERIAL PRIMARY KEY,
+Modelo VARCHAR(250),
+Peso INTEGER,
+Capacidad INTEGER,
+Hangar_Id INTEGER REFERENCES Hangares(numero));
+
+-- TABLA PARA LOS PILOTOS 
+CREATE TABLE IF NOT EXISTS Pilotos(
+NumeroLicencia SERIAL PRIMARY KEY,
+Restricciones VARCHAR(250),
+Salario DECIMAL,
+Turno VARCHAR(50));
+
+-- TABLA ENTRE PILOTOS Y AVIONES
+CREATE TABLE IF NOT EXISTS Piloto_Avion(
+Piloto_numero_licencia INTEGER REFERENCES Pilotos(NumeroLicencia),
+avion_numero INTEGER REFERENCES Aviones(numero));
